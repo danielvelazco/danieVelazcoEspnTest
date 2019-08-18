@@ -19,4 +19,8 @@ public class NflMachinePage {
        boolean value = playoffMachineLabel.isDisplayed();
        return value;
     }
+
+    public String getTitleFromMachinePage(WebDriver driver){
+        return driver.getTitle();
+    }
 }

@@ -41,10 +41,10 @@ public class EspnHomePage {
 
     public void moveMouseFromMenu(WebDriver driver, WebElement target){
         Actions builder = new Actions(driver);
-        Action mouseOverHome = builder
+        Action mouseOver = builder
                 .moveToElement(target)
                 .build();
-        mouseOverHome.perform();
+        mouseOver.perform();
     }
 
 }

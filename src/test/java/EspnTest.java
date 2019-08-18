@@ -41,12 +41,14 @@ public class EspnTest {
     }
 
     @Test
-    public void navigateToNflPlayoffMachine() throws InterruptedException {
+    @Parameters({"title"})
+    public void navigateToNflPlayoffMachine(String machinePageTitle) throws InterruptedException {
         //home page
         espnHomePage = new EspnHomePage(driver);
         if (espnHomePage.popupDisplayed()){
             driver.switchTo().frame(espnHomePage.popup);
-            Thread.sleep(5000);
+            //Thread.sleep(5000);
+            driver.close();
             driver.switchTo().defaultContent();
         }
 
@@ -65,11 +67,11 @@ public class EspnTest {
 
         //check redirect
         Assert.assertTrue(nflMachinePage.checkLabelPage());
+        Assert.assertEquals(nflMachinePage.getTitleFromMachinePage(driver),machinePageTitle);
     }
 
     @AfterClass
     public void close() {
         driver.quit();
     }
-
 }
