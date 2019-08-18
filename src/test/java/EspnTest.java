@@ -47,8 +47,7 @@ public class EspnTest {
         espnHomePage = new EspnHomePage(driver);
         if (espnHomePage.popupDisplayed()){
             driver.switchTo().frame(espnHomePage.popup);
-            //Thread.sleep(5000);
-            driver.close();
+            Thread.sleep(5000);
             driver.switchTo().defaultContent();
         }
 
